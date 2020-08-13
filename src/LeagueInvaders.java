@@ -14,7 +14,8 @@ public class LeagueInvaders {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public static void main(String[] args) {
-	
+		LeagueInvaders();
+		setup();
 }
 
 }                                                                      
