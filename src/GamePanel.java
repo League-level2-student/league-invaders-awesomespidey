@@ -15,7 +15,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int END = 2;
 	int currentState = MENU;
 	Timer frameDraw;
-
+	Rocketship rs;
 	Font titleFont;
 	Font subtitleFont;
 
@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		frameDraw.start();
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		subtitleFont = new Font("Arial", Font.PLAIN, 30);
+		rs = new Rocketship(250,600,50,50);
 	}
 
 	void updateMenuState() {
@@ -46,12 +47,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.drawString("Press ENTER to start", 100, 400);
 		g.setFont(subtitleFont);
 		g.setColor(Color.YELLOW);
-		g.drawString("Press SPACE for instructions", 50, 550);
+		g.drawString("Press SPACE for instructions", 50, 500);
 	}
 
 	void drawGameState(Graphics g) {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		rs.update();
+		rs.draw(g);
 	}
 
 	void drawEndState(Graphics g) {
@@ -60,6 +63,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setFont(titleFont);
 		g.setColor(Color.BLACK);
 		g.drawString("GAME OVER", 90,300);
+		g.setFont(subtitleFont);
+		g.setColor(Color.BLACK);
+		g.drawString("Press ENTER to play agian", 65,350);
+
 	}
 
 	public void paintComponent(Graphics g) {
@@ -96,14 +103,45 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    } else {
 		        currentState++;
 		    }
+		 
 		}
 		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
 		    System.out.println("UP");
+		     rs.movingUp = true;
 		}
+		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
+		    System.out.println("DOWN");
+		    rs.movingDown = true;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_LEFT) {
+		    System.out.println("LEFT");
+		    rs.movingLeft = true;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
+		    System.out.println("RIGHT");
+		    rs.movingRight = true;
+		}
+		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
+		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("UP");
+		     rs.movingUp = false;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
+		    System.out.println("DOWN");
+		    rs.movingDown = false;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_LEFT) {
+		    System.out.println("LEFT");
+		    rs.movingLeft = false;
+		}
+		if (arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
+		    System.out.println("RIGHT");
+		    rs.movingRight = false;
+		}
 		// TODO Auto-generated method stub
 		
 	}
