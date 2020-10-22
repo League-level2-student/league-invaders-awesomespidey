@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,19 +24,28 @@ public class ObjectManager {
 
 	void update() {
 		for (int i = 0; i < pj.size(); i++) {
-			Projectile p1= pj.get(i);
+			Projectile p1 = pj.get(i);
 			p1.update();
-			if(p1.y < 0) {
+			if (p1.y < 0) {
 				p1.isActive = false;
-		}}
+			}
+		}
 		for (int i = 0; i < al.size(); i++) {
 			Alien a1 = al.get(i);
 			a1.update();
-			
-			if(a1.y > LeagueInvaders.HEIGHT) {
+
+			if (a1.y > LeagueInvaders.HEIGHT) {
 				a1.isActive = false;
 			}
+		}
 	}
-}
+
+	void draw(Graphics g) {
+		rs.draw(g);
+		for (int i = 0; i < al.size(); i++) {
+			Alien a1 = al.get(i);
+			rs.draw(g);
+		}
+	}
 
 }
