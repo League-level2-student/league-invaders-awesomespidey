@@ -6,7 +6,6 @@ public class LeagueInvaders {
 	public static final int WIDTH = 500;
 	JFrame frame;
 	GamePanel gpanel;
-	
 
 	LeagueInvaders() {
 		frame = new JFrame();

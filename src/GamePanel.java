@@ -20,11 +20,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font subtitleFont;
 
 	GamePanel() {
-		frameDraw = new Timer(1000/60,this);
+		frameDraw = new Timer(1000 / 60, this);
 		frameDraw.start();
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		subtitleFont = new Font("Arial", Font.PLAIN, 30);
-		rs = new Rocketship(250,600,50,50);
+		rs = new Rocketship(250, 600, 50, 50);
 	}
 
 	void updateMenuState() {
@@ -62,10 +62,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 		g.setFont(titleFont);
 		g.setColor(Color.BLACK);
-		g.drawString("GAME OVER", 90,300);
+		g.drawString("GAME OVER", 90, 300);
 		g.setFont(subtitleFont);
 		g.setColor(Color.BLACK);
-		g.drawString("Press ENTER to play agian", 65,350);
+		g.drawString("Press ENTER to play agian", 65, 350);
 
 	}
 
@@ -83,12 +83,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if(currentState == MENU){
-		    updateMenuState();
-		}else if(currentState == GAME){
-		    updateGameState();
-		}else if(currentState == END){
-		    updateEndState();
+		if (currentState == MENU) {
+			updateMenuState();
+		} else if (currentState == GAME) {
+			updateGameState();
+		} else if (currentState == END) {
+			updateEndState();
 		}
 		System.out.println("action");
 		repaint();
@@ -97,58 +97,58 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		if (arg0.getKeyCode()==KeyEvent.VK_ENTER) {
-		    if (currentState == END) {
-		        currentState = MENU;
-		    } else {
-		        currentState++;
-		    }
-		 
+		if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (currentState == END) {
+				currentState = MENU;
+			} else {
+				currentState++;
+			}
+
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
-		    System.out.println("UP");
-		     rs.movingUp = true;
+		if (arg0.getKeyCode() == KeyEvent.VK_UP) {
+			System.out.println("UP");
+			rs.movingUp = true;
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
-		    System.out.println("DOWN");
-		    rs.movingDown = true;
+		if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {
+			System.out.println("DOWN");
+			rs.movingDown = true;
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_LEFT) {
-		    System.out.println("LEFT");
-		    rs.movingLeft = true;
+		if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
+			System.out.println("LEFT");
+			rs.movingLeft = true;
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
-		    System.out.println("RIGHT");
-		    rs.movingRight = true;
+		if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
+			System.out.println("RIGHT");
+			rs.movingRight = true;
 		}
-		
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-		if (arg0.getKeyCode()==KeyEvent.VK_UP) {
-		    System.out.println("UP");
-		     rs.movingUp = false;
+		if (arg0.getKeyCode() == KeyEvent.VK_UP) {
+			System.out.println("UP");
+			rs.movingUp = false;
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_DOWN) {
-		    System.out.println("DOWN");
-		    rs.movingDown = false;
+		if (arg0.getKeyCode() == KeyEvent.VK_DOWN) {
+			System.out.println("DOWN");
+			rs.movingDown = false;
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_LEFT) {
-		    System.out.println("LEFT");
-		    rs.movingLeft = false;
+		if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
+			System.out.println("LEFT");
+			rs.movingLeft = false;
 		}
-		if (arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
-		    System.out.println("RIGHT");
-		    rs.movingRight = false;
+		if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
+			System.out.println("RIGHT");
+			rs.movingRight = false;
 		}
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
