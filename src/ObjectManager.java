@@ -2,6 +2,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class ObjectManager {
 	Rocketship rs;
 	Random random;
@@ -44,8 +46,26 @@ public class ObjectManager {
 		rs.draw(g);
 		for (int i = 0; i < al.size(); i++) {
 			Alien a1 = al.get(i);
-			rs.draw(g);
+			a1.draw(g);
+		}
+	
+		for (int i = 0; i < pj.size(); i++) {
+			Projectile p1 = pj.get(i);
+			p1.draw(g);
 		}
 	}
-
+	void purgeObjects() {
+		for (int i = al.size() - 1 ; i >= 0; i--) {
+			if (al.get(i).isActive == false ) {
+				
+			}
+		}
+		for (int i = pj.size() - 1; i >= 0; i--) {
+			
+		}
+	}
+	
 }
+
+
+
