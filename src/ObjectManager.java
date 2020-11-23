@@ -48,24 +48,23 @@ public class ObjectManager {
 			Alien a1 = al.get(i);
 			a1.draw(g);
 		}
-	
+
 		for (int i = 0; i < pj.size(); i++) {
 			Projectile p1 = pj.get(i);
 			p1.draw(g);
 		}
 	}
+
 	void purgeObjects() {
-		for (int i = al.size() - 1 ; i >= 0; i--) {
-			if (al.get(i).isActive == false ) {
-				
+		for (int i = al.size() - 1; i >= 0; i--) {
+			if (al.get(i).isActive == false) {
+			
 			}
 		}
 		for (int i = pj.size() - 1; i >= 0; i--) {
-			
+			if (pj.get(i).isActive == false) {
+				
+			}
 		}
 	}
-	
 }
-
-
-
