@@ -25,6 +25,7 @@ public class ObjectManager {
 	}
 
 	void update() {
+		rs.update();
 		for (int i = 0; i < pj.size(); i++) {
 			Projectile p1 = pj.get(i);
 			p1.update();
@@ -58,12 +59,12 @@ public class ObjectManager {
 	void purgeObjects() {
 		for (int i = al.size() - 1; i >= 0; i--) {
 			if (al.get(i).isActive == false) {
-			
+				al.remove(i);
 			}
 		}
 		for (int i = pj.size() - 1; i >= 0; i--) {
 			if (pj.get(i).isActive == false) {
-				
+				pj.remove(i);
 			}
 		}
 	}
