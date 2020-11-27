@@ -8,11 +8,11 @@ public class Alien extends GameObject {
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;
-	
+
 	Alien(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		if (needImage) {
-		    loadImage ("alien.png");
+			loadImage("alien.png");
 		}
 	}
 
@@ -30,16 +30,16 @@ public class Alien extends GameObject {
 	void update() {
 		y += speed;
 	}
-	
+
 	void loadImage(String imageFile) {
-	    if (needImage) {
-	        try {
-	            image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
-		    gotImage = true;
-	        } catch (Exception e) {
-	            
-	        }
-	        needImage = false;
-	    }
+		if (needImage) {
+			try {
+				image = ImageIO.read(this.getClass().getResourceAsStream(imageFile));
+				gotImage = true;
+			} catch (Exception e) {
+
+			}
+			needImage = false;
+		}
 	}
 }
